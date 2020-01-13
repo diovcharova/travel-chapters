@@ -1,4 +1,19 @@
-{% extends 'base.html' %}
-{% block content %}
-
-{% endblock %}
+{% extends 'base.html' %} {% block content %} {% for chapter in chapters %}
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{chapter.main_photo}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title"><strong>{{chapter.title}}</strong></span>
+        <p>{{chapter.story}}</p>
+      </div>
+      <div class="card-action">
+        <a href="#">Edit</a>
+        <a href="#">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}
