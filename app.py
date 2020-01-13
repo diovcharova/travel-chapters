@@ -18,6 +18,10 @@ mongo = PyMongo(app)
 def get_chapters():
     return render_template("chapters.html", chapters = mongo.db.chapters.find())
     
+@app.route('/add_chapter')
+def add_chapter():
+    return render_template("chapters.html", chapters = mongo.db.chapters.find())
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
