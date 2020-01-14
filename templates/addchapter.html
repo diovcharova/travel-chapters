@@ -4,49 +4,60 @@
 <div class="row">
     <form action="{{ url_for('insert_chapter') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s12">
+            <div class="input-field col s12" >
                 <i class="material-icons prefix">assignment</i>
-                <input id="title" name="title" type="text">
+                <input id="title" name="title" type="text" required>
                 <label for="icon_prefix">Title</label>
             </div>
         </div>
         <div class="row">
-            <div class="row">
-                <div class="input-field col s6">
-                    <i class="material-icons prefix">poll</i>
-                    <select id="country_name" name="country_name">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">poll</i>
+                <select id="country_name" name="country_name">
                   <option value="" disabled selected>Choose Country</option>
                   {% for coun in countries %}
                       <option value="{{coun.country_name}}">{{coun.country_name}}</option>
                   {% endfor %}
-                   <option value=""><a href="{{ url_for('add_country') }}">Add a new Country</a></option>
                 </select>
-                    <label>Destination country</label>
-                </div>
+                <label>Destination country</label>
             </div>
+        </div>
+        <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">assignment</i>
-                <input id="city_name" name="city_name" type="text">
+                <input id="city_name" name="city_name" type="text" required>
                 <label for="icon_prefix">City name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="story" id="story" class="materialize-textarea"></textarea>
+                <textarea name="story" id="story" class="materialize-textarea" required></textarea>
                 <label for="icon_telephone">Story</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <input id="start_date" name="start_date" type="text" class="datepicker">
+                <input id="start_date" name="start_date" type="text" class="datepicker" required> 
                 <label for="icon_prefix">Start Date</label>
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <input id="end_date" name="end_date" type="text" class="datepicker">
+                <input id="end_date" name="end_date" type="text" class="datepicker" required>
                 <label for="icon_prefix">End Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="file-field input-field col s6">
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Upload one or more photos">
+                    </div>
+                    <div class="btn">
+                        <span>Upload</span>
+                        <input type="file" multiple>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
