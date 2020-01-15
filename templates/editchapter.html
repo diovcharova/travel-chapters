@@ -2,11 +2,11 @@
 
 <h4 class="center-align">Edit a travel chapter</h4>
 <div class="row">
-    <form action="{{ url_for('insert_chapter') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_chapter', chapter_id=chapter._id) }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s12" >
+            <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <input id="title" name="title" type="text" required>
+                <input id="title" name="title" type="text" required value="{{chapter.title}}">
                 <label for="icon_prefix">Title</label>
             </div>
         </div>
@@ -14,9 +14,13 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
                 <select id="country_name" name="country_name">
-                  <option value="" disabled selected>Choose Country</option>
+                  <option value="" disabled>Choose Country</option>
                   {% for coun in countries %}
+                      {% if coun.country_name == chapter.country_name %}
+                      <option value="{{coun.country_name}}" class="amber-text text-darken-2" selected>{{coun.country_name}}</option>
+                      {% else %}
                       <option value="{{coun.country_name}}" class="amber-text text-darken-2">{{coun.country_name}}</option>
+                    {% endif %}
                   {% endfor %}
                 </select>
                 <label>Destination country</label>
@@ -25,21 +29,21 @@
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">assignment</i>
-                <input id="city_name" name="city_name" type="text" required>
+                <input id="city_name" name="city_name" type="text" required value="{{chapter.city_name}}">
                 <label for="icon_prefix">City name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea name="story" id="story" class="materialize-textarea" required></textarea>
+                <textarea name="story" id="story" class="materialize-textarea" required>{{chapter.story}}</textarea>
                 <label for="icon_telephone">Story</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <input id="start_date" name="start_date" type="text" class="datepicker" required> 
+                <input id="start_date" name="start_date" type="text" class="datepicker" required>
                 <label for="icon_prefix">Start Date</label>
             </div>
             <div class="input-field col s6">
@@ -50,23 +54,33 @@
         </div>
         <div class="row">
             <div class="file-field input-field col s6">
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload one or more photos">
-                    </div>
-                    <div class="btn-small">
-                        <span>Upload</span>
-                        <input type="file" multiple>
-                    </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload one or more photos">
+                </div>
+                <div class="btn-small">
+                    <span>Upload</span>
+                    <input type="file" multiple>
                 </div>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light amber darken-2 col offset-s1" type="submit" name="action">Add Chapter
+            <button class="btn waves-effect waves-light amber darken-2" type="submit" name="action">Edit Chapter
                 <i class="material-icons right">playlist_add</i>
              </button>
         </div>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        start_date = Date.parse('{{chapter.start_date}}');
+        end_date = Date.parse('{{chapter.end_date}}');
+        $('#start_date').pickadate('picker').set('select', start_date, { format: 'dd/mm/yyyy' }).trigger('change')
+        $('#end_date').pickadate('picker').set('select', end_date, { format: 'dd/mm/yyyy' }).trigger('change')
+    });
+</script>
+
 
 
 {% endblock %}

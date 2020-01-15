@@ -29,9 +29,24 @@ def insert_chapter():
 
 @app.route('/edit_chapter/<chapter_id>')
 def edit_chapter(chapter_id):
-    chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
-    countries = mongo.db.categories.find()
-    return render_template('editchapter.html', chapter = chapter, countries= countries)    
+    the_chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
+    the_countries = mongo.db.countries.find()
+    return render_template('editchapter.html', chapter = the_chapter, countries= the_countries)    
+
+@app.route('/update_chapter/<chapter_id>', methods=["POST"])
+def update_chapter(chapter_id):
+    chapters = mongo.db.chapters
+    chapters.update({'_id': ObjectId(chapter_id)},
+    {
+        'title':request.form.get('title'),
+        'country_name':request.form.get('country_name'),
+        'city_name':request.form.get('city_name'),
+        'story': request.form.get('story'),
+        'start_date': request.form.get('start_date'),       
+        'end_date': request.form.get('end_date'),
+        'main_photo':request.form.get('main_photo')   
+    })
+    return redirect(url_for('get_chapters'))
 
 @app.route('/add_country')
 def add_country():
