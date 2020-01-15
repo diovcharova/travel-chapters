@@ -27,6 +27,12 @@ def insert_chapter():
     chapters.insert_one(request.form.to_dict())
     return redirect(url_for('get_chapters'))
 
+@app.route('/edit_chapter/<chapter_id>')
+def edit_chapter(chapter_id):
+    chapter = mongo.db.chapters.find_one({"_id": ObjectId(chapter_id)})
+    countries = mongo.db.categories.find()
+    return render_template('editchapter.html', chapter = chapter, countries= countries)    
+
 @app.route('/add_country')
 def add_country():
     return render_template('addcountry.html')

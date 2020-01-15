@@ -1,0 +1,30 @@
+body {
+}
+
+.datepicker-date-display {
+ background-color: #ffa000;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+ color: #ffa000;
+}
+
+.datepicker-table td.is-today {
+ color: #ffa000;
+}
+
+.datepicker-table td.is-selected {
+ background-color: #ffa000;
+ color: #fff;
+}
+
+nav .brand-logo {
+ margin-left: 1em;
+}
+
+.color-amber{
+ color: #ffa000;
+}
