@@ -47,6 +47,11 @@ def update_chapter(chapter_id):
         'main_photo':request.form.get('main_photo')   
     })
     return redirect(url_for('get_chapters'))
+    
+@app.route('/delete_chapter/<chapter_id>')
+def delete_chapter(chapter_id):
+    mongo.db.chapters.remove({'_id': ObjectId(chapter_id)})
+    return redirect(url_for('get_chapters'))
 
 @app.route('/add_country')
 def add_country():
