@@ -14,20 +14,26 @@
 </head>
 
 <body>
-  <nav class="nav-extended">
-    <div class="nav-wrapper amber darken-2">
-      <a href="{{url_for('get_chapters')}}" class="brand-logo">Travel chapters</a>
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+  <header>
+    <nav class="nav-extended">
+      <div class="nav-wrapper amber darken-2">
+        <a href="{{url_for('get_chapters')}}" class="brand-logo">Travel chapters</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="{{url_for('get_chapters')}}">Home</a></li>
+          <li><a href="{{url_for('add_chapter')}}">New travel chapter</a></li>
+          <li><a href="{{url_for('get_countries')}}">Countries</a></li>
+          <li><a href="{{url_for('add_country')}}">New country</a></li>
+        </ul>
+      </div>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{url_for('get_chapters')}}">Home</a></li>
         <li><a href="{{url_for('add_chapter')}}">New travel chapter</a></li>
+        <li><a href="{{url_for('get_countries')}}">Countries</a></li>
+        <li><a href="{{url_for('add_country')}}">New country</a></li>
       </ul>
-    </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-demo">
-    <li><a href="{{url_for('add_chapter')}}">New travel chapter</a></li>
-  </ul>
-
+    </nav>
+  </header>
   <div class="container">
     {% block content %} {% endblock %}
   </div>
