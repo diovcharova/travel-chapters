@@ -53,9 +53,14 @@ def delete_chapter(chapter_id):
     mongo.db.chapters.remove({'_id': ObjectId(chapter_id)})
     return redirect(url_for('get_chapters'))
 
+@app.route('.get_countries')
+def get_countries():
+    return render_template('countries.html', countries = mongo.db.countries.find())
+
 @app.route('/add_country')
 def add_country():
     return render_template('addcountry.html')
+
 
     
 if __name__ == '__main__':
