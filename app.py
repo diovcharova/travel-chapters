@@ -56,6 +56,11 @@ def delete_chapter(chapter_id):
 @app.route('.get_countries')
 def get_countries():
     return render_template('countries.html', countries = mongo.db.countries.find())
+    
+@app.route('/edit_country/<country_id>')
+def edit_country(country_id):
+    return render_template('editcountry.html', country=mongo.db.countries.find_one({'_id': ObjectId(country_id)}))
+    
 
 @app.route('/add_country')
 def add_country():
