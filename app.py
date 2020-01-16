@@ -53,7 +53,7 @@ def delete_chapter(chapter_id):
     mongo.db.chapters.remove({'_id': ObjectId(chapter_id)})
     return redirect(url_for('get_chapters'))
 
-@app.route('.get_countries')
+@app.route('/get_countries')
 def get_countries():
     return render_template('countries.html', countries = mongo.db.countries.find())
     
@@ -61,6 +61,12 @@ def get_countries():
 def edit_country(country_id):
     return render_template('editcountry.html', country=mongo.db.countries.find_one({'_id': ObjectId(country_id)}))
     
+@app.route('/update_country/<country_id>', methods=["POST"])
+def update_country(country_id):
+    mongo.db.countries.update(
+        {'_id':ObjectId(country_id)},
+        {'country_name': request.form.get('country_name')})
+    return redirect(url_for('get_countries'))
 
 @app.route('/add_country')
 def add_country():
