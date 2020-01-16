@@ -73,10 +73,16 @@ def delete_country(country_id):
     mongo.db.countries.remove({'_id': ObjectId(country_id)})
     return redirect(url_for('get_countries'))
 
+@app.route('/insert_country', methods=["POST"])
+def insert_country():
+    country_doc = {'country_name': request.form.get('country_name')}
+    mongo.db.countries.insert_one(country_doc)
+    return redirect(url_for('get_countries'))
+
+
 @app.route('/add_country')
 def add_country():
     return render_template('addcountry.html')
-
 
     
 if __name__ == '__main__':
