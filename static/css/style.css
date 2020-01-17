@@ -33,3 +33,7 @@ nav .brand-logo {
 .card{
  margin-top: 1em;
 }
+
+div #map{
+ min-height: 360px;
+}
