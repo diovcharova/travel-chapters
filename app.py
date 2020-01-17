@@ -84,6 +84,10 @@ def insert_country():
 def add_country():
     return render_template('addcountry.html')
 
+
+@app.route('/get_locations')
+def get_locations():
+    return render_template('locations.html')
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
