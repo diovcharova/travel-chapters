@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import json
 
 app = Flask (__name__)
 
@@ -87,7 +88,7 @@ def add_country():
 
 @app.route('/get_locations')
 def get_locations():
-    return render_template('locations.html')
+    return render_template('locations.html', chapters =mongo.db.chapters.find())
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
