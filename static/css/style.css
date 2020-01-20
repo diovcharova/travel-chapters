@@ -1,5 +1,4 @@
-body {
-}
+body {}
 
 .datepicker-date-display {
  background-color: #ffa000;
@@ -25,15 +24,24 @@ nav .brand-logo {
  margin-left: 1em;
 }
 
-.color-amber{
+.color-amber {
  color: #ffa000;
 }
 
 
-.card{
+.card {
  margin-top: 1em;
 }
 
-div #map{
+div #map {
  min-height: 360px;
 }
+
+.btn_small {
+ margin: 5px;
+}
+
+.country_name {
+ margin: 12px;
+}
+

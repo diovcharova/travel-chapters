@@ -1,9 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-
-{% for chapter in chapters %}
 <div class="row">
-  <div class="col s12 m7">
-    <div class="card">
+   {% for chapter in chapters %}
+  <div class="col s12 m6" >
+    <div class="card" >
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="{{chapter.main_photo}}">
       </div>
@@ -12,7 +11,6 @@
           <strong>{{chapter.title}}</strong><i class="material-icons right">keyboard_arrow_down</i><br>
         </span>
         <h6>{{chapter.start_date}} - {{chapter.end_date}}</h6>
-
       </div>
 
       <div class="card-action right-align">
@@ -28,5 +26,6 @@
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
-{% endfor %} {% endblock %}
+ {% endblock %}

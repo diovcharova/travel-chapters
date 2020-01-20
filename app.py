@@ -34,7 +34,7 @@ def edit_chapter(chapter_id):
     the_countries = mongo.db.countries.find()
     return render_template('editchapter.html', chapter = the_chapter, countries= the_countries)    
 
-@app.route('/update_chapter/<chapter_id>', methods=["POST"])
+@app.route('/update_chapter/<chapter_id>', methods=['POST'])
 def update_chapter(chapter_id):
     chapters = mongo.db.chapters
     chapters.update({'_id': ObjectId(chapter_id)},
