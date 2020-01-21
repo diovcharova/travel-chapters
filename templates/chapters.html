@@ -1,11 +1,17 @@
 {% extends 'base.html' %} {% block content %}
 <div class="row">
    {% for chapter in chapters %}
-  <div class="col s12 m6" >
+  <div class="col s12 m6 l3" >
     <div class="card" >
-      <div class="card-image waves-effect waves-block waves-light">
+      {% if chapter.main_photo %}
+      <div class="card-image waves-effect waves-block waves-light" style="height:20em;width:100%;">
         <img class="activator" src="{{chapter.main_photo}}">
       </div>
+      {% else %}
+      <div class="card-image waves-effect waves-block waves-light" style="display:none;">
+        <img class="activator" src="{{chapter.main_photo}}">
+      </div>
+      {% endif %}
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4">
           <strong>{{chapter.title}}</strong><i class="material-icons right">keyboard_arrow_down</i><br>

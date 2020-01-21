@@ -2,7 +2,7 @@
 
 <h4 class="center-align">Add a new travel chapter</h4>
 <div class="row">
-    <form action="{{ url_for('insert_chapter') }}" method="POST" class="col s12">
+    <form action="{{ url_for('insert_chapter') }}" method="POST" class="col s12" id="addchapter">
         <div class="row">
             <div class="input-field col s12" >
                 <i class="material-icons prefix">assignment</i>
@@ -51,7 +51,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">photo_camera</i>
-                <input id="main_photo" name="main_photo" type="text">
+                <input id="main_photo" name="main_photo" type="url">
                 <label for="icon_prefix">Photo link</label>
             </div>
         </div>
