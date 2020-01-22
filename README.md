@@ -17,7 +17,7 @@ The design on the website is very simple and stripped of complicated structures.
 * As a user looking for an idea for my next travel destination, reading a person's experiences can inform me of what to expect.
 
 ### UX based design
-Based on the user stories, I got a clearer idea of the required features on the website. As part of the design process, I developed a wireframe, which can be viewed [here](https://github.com/diovcharova/travel-chapters/blob/master/static/images/travel-chapters-wireframe.pdf), and a mockup, which can be viewed [here](https://github.com/diovcharova/travel-chapters/blob/master/static/images/travel-chapters-mockup.pdf).
+Based on the user stories, I got a clearer idea of the required features on the website. As part of the design process, I developed wireframes, which can be viewed [here](https://github.com/diovcharova/travel-chapters/tree/master/static/wireframes), and mockups, which can be viewed [here](https://github.com/diovcharova/travel-chapters/tree/master/static/mockups).
 
 ## Features
 
