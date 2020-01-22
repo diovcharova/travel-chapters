@@ -1,4 +1,4 @@
-body {}
+/*Datepicker*/
 
 .datepicker-date-display {
  background-color: #ffa000;
@@ -20,34 +20,31 @@ body {}
  color: #fff;
 }
 
+/*Base page*/
+
 nav .brand-logo {
  margin-left: 1em;
 }
-
-.color-amber {
- color: #ffa000;
-}
-
 
 .card {
  margin-top: 1em;
 }
 
+.same-height{
+ height:228px;
+}
+
+/*Locations page*/
+
 div #map {
  min-height: 360px;
 }
 
-.btn_small {
- margin: 5px;
+.capitalized-text{
+ text-transform: capitalize;
 }
 
-.country_name {
- margin: 12px;
-}
-
-.same-height{
- height:228px;
-}
+/*Font sizes*/
 
 .bigger-font{
  font-size:16px;
@@ -57,9 +54,7 @@ div #map {
  font-size:14px;
 }
 
-.no-margin{
- margin:0;
-}
+/*Colors*/
 
 .grey-color{
  color:#333333
@@ -69,6 +64,7 @@ div #map {
  color:#e63900
 }
 
-.capitalized-text{
- text-transform: capitalize;
+.color-amber {
+ color: #ffa000;
 }
+
