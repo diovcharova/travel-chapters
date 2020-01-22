@@ -6,11 +6,9 @@
         {% for country in countries %}
         <li>
             <div class="collapsible-header">
-                <div class="country_name valign-wrapper"><strong>{{country.country_name}}</strong></div>
-                <div class="valign-wrapper">
-                    <a href="{{ url_for('edit_country', country_id= country._id) }}" class="tooltipped" data-position="bottom" data-tooltip="Edit country" style="color:black"><i class="material-icons" style="margin:0;">settings_applications</i></a>
-                    <a href="{{ url_for('delete_country', country_id= country._id) }}" class="tooltipped" data-position="bottom" data-tooltip="Delete country" style="color:black"><i class="material-icons" style="margin:0;">delete</i></a>
-                </div>
+                <p class="country_name valign-wrapper"><strong>{{country.country_name}}</strong></p>
+                <a href="{{ url_for('edit_country', country_id= country._id) }}" class="tooltipped valign-wrapper" data-position="bottom" data-tooltip="Edit country" style="color:#333333"><i class="material-icons" style="margin:0;">settings_applications</i></a>
+                <a href="{{ url_for('delete_country', country_id= country._id) }}" class="tooltipped valign-wrapper" data-position="bottom" data-tooltip="Delete country" style="color:#e63900"><i class="material-icons" style="margin:0;">delete</i></a>
             </div>
         </li>
         {% endfor %}
