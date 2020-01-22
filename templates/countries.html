@@ -6,9 +6,10 @@
         {% for country in countries %}
         <li>
             <div class="collapsible-header">
-                <a href="{{ url_for('edit_country', country_id= country._id) }}" class="waves-effect waves-light btn btn_small amber darken-2">Edit</a>
-                <a href="{{ url_for('delete_country', country_id= country._id) }}" class="waves-effect waves-light btn btn_small">Delete</a>
-                <div class="country_name"><strong>{{country.country_name}}</strong>
+                <div class="country_name valign-wrapper"><strong>{{country.country_name}}</strong></div>
+                <div class="valign-wrapper right !important">
+                    <a href="{{ url_for('edit_country', country_id= country._id) }}" class="tooltipped" data-position="bottom" data-tooltip="Edit country"><i class="material-icons" style="margin:0;">settings_applications</i></a>
+                    <a href="{{ url_for('delete_country', country_id= country._id) }}" class="tooltipped" data-position="bottom" data-tooltip="Delete country"><i class="material-icons style="margin:0;">delete</i></a>
                 </div>
             </div>
         </li>
@@ -18,4 +19,5 @@
 <div class="row">
     <a href="{{ url_for('add_country') }}" class="waves-effect waves-light btn"><i class="material-icons right">playlist_add</i>Add Country</a>
 </div>
+
 {% endblock %}

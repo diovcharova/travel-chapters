@@ -24,9 +24,6 @@ function geocodeAddress(geocoder, resultsMap) {
           label: labels[labelIndex++ % labels.length],
         });
       }
-      else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
     });
   }
 }
