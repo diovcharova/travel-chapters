@@ -16,7 +16,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_chapters')
 def get_chapters():
-    placeholder = "https://via.placeholder.com/200x229.png?text=No+image+found";
+    placeholder = "https://via.placeholder.com/200x228.png?text=No+image+found";
     return render_template("chapters.html", chapters= mongo.db.chapters.find(), placeholder=placeholder)
     
 @app.route('/add_chapter')

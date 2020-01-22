@@ -2,12 +2,12 @@
 
 <div class="row">
   <h4 class="center-align">Locations you have visited</h4>
-  <div id="map" style="min-height:360px;"></div>
+  <div id="map"></div>
   <ul class="collection">
     {% for chapter in chapters %}
     <li class="collection-item avatar">
       <img src="{{chapter.main_photo}}" alt="" class="circle">
-      <span class="title address" style="text-transform: capitalize;">{{chapter.city_name}}, {{chapter.country_name}}</span>
+      <span class="title address capitalized-text">{{chapter.city_name}}, {{chapter.country_name}}</span>
     </li>
     {% endfor %}
   </ul>

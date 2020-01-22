@@ -45,3 +45,30 @@ div #map {
  margin: 12px;
 }
 
+.same-height{
+ height:228px;
+}
+
+.bigger-font{
+ font-size:16px;
+}
+
+.smaller-font{
+ font-size:14px;
+}
+
+.no-margin{
+ margin:0;
+}
+
+.grey-color{
+ color:#333333
+}
+
+.red-color{
+ color:#e63900
+}
+
+.capitalized-text{
+ text-transform: capitalize;
+}
