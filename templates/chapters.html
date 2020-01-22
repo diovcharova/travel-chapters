@@ -4,17 +4,17 @@
   <div class="col s12 m6 l3" >
     <div class="card" >
       {% if chapter.main_photo %}
-      <div class="card-image waves-effect waves-block waves-light" style="max-height:228px;">
-        <img class="activator" src="{{chapter.main_photo}}">
+      <div class="card-image waves-effect waves-block waves-light" >
+        <img class="activator" src="{{chapter.main_photo}}" style="height:228px;">
       </div>
       {% else %}
-      <div class="card-image waves-effect waves-block waves-light" style="max-height:228px;">
-        <img class="activator" src="{{placeholder}}">
+      <div class="card-image waves-effect waves-block waves-light" >
+        <img class="activator" src="{{placeholder}}" style="height:228px;">
       </div>
       {% endif %}
-      <div class="card-content ">
+      <div class="card-content">
         <span class="card-title activator grey-text text-darken-4 " style="font-size:16px;">
-          <strong>{{chapter.title}}</strong><i class="material-icons right">keyboard_arrow_down</i>
+          <strong class="truncate">{{chapter.title}}</strong><i class="material-icons right">keyboard_arrow_down</i>
         </span>
         <p style="font-size:14px;">{{chapter.start_date}} - {{chapter.end_date}}</p>
       </div>
