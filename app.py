@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import json
 
-app = Flask (__name__)
+app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = 'travel_diary'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
@@ -12,11 +12,10 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 mongo = PyMongo(app)
 
 
-
 @app.route('/')
 @app.route('/get_chapters')
 def get_chapters():
-    placeholder = "https://via.placeholder.com/200x228.png?text=No+image+found";
+    placeholder = "https://via.placeholder.com/200x229.png?text=No+image+found"
     return render_template("chapters.html", chapters= mongo.db.chapters.find(), placeholder=placeholder)
     
 @app.route('/add_chapter')
@@ -40,13 +39,13 @@ def update_chapter(chapter_id):
     chapters = mongo.db.chapters
     chapters.update({'_id': ObjectId(chapter_id)},
     {
-        'title':request.form.get('title'),
-        'country_name':request.form.get('country_name'),
-        'city_name':request.form.get('city_name'),
+        'title': request.form.get('title'),
+        'country_name': request.form.get('country_name'),
+        'city_name': request.form.get('city_name'),
         'story': request.form.get('story'),
         'start_date': request.form.get('start_date'),       
         'end_date': request.form.get('end_date'),
-        'main_photo':request.form.get('main_photo')   
+        'main_photo': request.form.get('main_photo')   
     })
     return redirect(url_for('get_chapters'))
     
@@ -66,7 +65,7 @@ def edit_country(country_id):
 @app.route('/update_country/<country_id>', methods=["POST"])
 def update_country(country_id):
     mongo.db.countries.update(
-        {'_id':ObjectId(country_id)},
+        {'_id': ObjectId(country_id)},
         {'country_name': request.form.get('country_name')})
     return redirect(url_for('get_countries'))
 
@@ -95,4 +94,3 @@ if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-            

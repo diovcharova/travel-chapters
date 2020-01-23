@@ -25,7 +25,7 @@ Based on the user stories, I got a clearer idea of the required features on the 
 The header gives a general structure to the website. The navbar is a list of links, that collapses to a dropdown menu on smaller screens to save real estate. The home page displays the currently available travel chapters in the data base in the form of cards. Each chapter can be edited or deleted. In the 'New travel chapter' page, a form is provided for the user to fill in the data that is fed to the database. 'Countries' displays the list of countries in the corresponding collection, each of which can also be edited or deleted. A button to add a new country is also provided on that page. Finally, the 'Visited locations' page renders a Google maps, with markers for each visited location. 
 
 ### Features left to implement
-In the future, more features can be added on the website. For instance, a section can be added where the users can create a to-do list of the places they are planning or would like to visit. Also the website can be changed such that to allow users to create accounts. Each user can then share publicly their travels or read other people's experiences. 
+In the future, more features can be added on the website. For instance, a section can be added where the users can create a to-do list of the places they are planning or would like to visit. Also the website can be changed such that to allow users to create accounts. Each user can then share publicly their travels or read other people's experiences. Pagination can be implemented on the homepage. Furthermore some of the input fields of the form from adding a new chapter can be better validated.
 
 
 ## Technologies Used
@@ -41,13 +41,24 @@ In the future, more features can be added on the website. For instance, a sectio
 
 
 ## Testing
-The access to the different sections of the website is clear and straightforward as the header provides links to them. The different user stories achieve the intended outcome.
+The testing procedure follows three steps - planning, implementation and outcomes.
 
-<!-- 
-On the contact page, the contact form provides the users with the opportunity to easily contact the company, without leaving the website. When the form is filled in, an email is sent to my email address, using an EmailJS template, I have created. The links in the footer to the social media accounts of represented by Font Awesome icons and currently redirect the user to the homepage of the corresponding social media. The form on the website is validated and does not allow submission with invalid input. For example, the email address has to include a '@' sign and if it does not, an error message is displayed, indicating the user is trying to submit an invalid email address. All the fields in the forms are required and the user cannot submit the form with an empty field. The social links in the bottom of the page use a 'target="_blank"', so they open in a new tab. It has all been manually tested to make sure it displays what is expected. There are no broken links and it has been manually checked they all point to where they are supposed to. 
--->
+For such a small scale project, manual testing of all the features is sufficient to establish the degree to which the application works as expected. All the pages, buttons, links and forms need to be manually visited, clicked on or filled in. The calls to the database and the Google Maps API should return the expected outcomes. 
 
-Different screen sizes have been tested to ensure responsiveness, in the developer tools and on [Responsinator](https://www.responsinator.com/). The website has also been run on various web browsers, such as Chrome, Safari, Internet Explorer and Microsoft Edge, leading to the conclusion the website is compatible with all of them. It does not perform well in most of the Firefox versions, as tested on [Browsershots](http://browsershots.org/). The HTML, CSS, JavaScript and Python codes have been validated by [HTML validator](https://validator.w3.org/), [CSS Validation service - Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/) and [InfoHeap](http://infoheap.com/python-lint-online/) respectively.
+The navigation bar, appears in all of the pages and is intended to provide more structure and ease of use. When clicked, all the links lead to the expected page. Using the back command in the browser does not cause any problems. 
+
+On the home page, the cards corresponding to the different travel chapters appear. After manually checking, the call to the database does return the expected result, namely all entries in the chapters collection. The cards work as intended, and when clicked the additional information is displayed. Each chapter can be edited and deleted via the button on the bottom right corner of the card. 'Edit' leads to the edit page where a form is displayed. The input fields are prefilled with the data from the database such that the user can only edit one or a few of the fields. The 'Edit chapter' button at the bottom of the page redirects back to the home page. The delete button deletes the entry and reloads the home page. 
+
+The 'New travel chapter' page displays a form, requesting the user for the relevant information in order to create a new entry in the database.  Most of the fields are required and validated. The select menu displays the countries, that are already input in the database. At this version of the application, there is no validation implemented that the end date is after the start date. Inputing incorrect values from the user does not prevent a creation of a new entry. 
+
+The 'Countries' page is rather simple, it displays a list, which is a result of a call to the database. Each item in the list can be edited or deleted via the icons on the right. The work as expected. Pressing the edit icon leads to a prefilled form and upon submition, the user is redirected back to the 'Countries' page. Deleting works in the same way as the delete of a chapter and just reloads the page, while removing the relevant entry from the database. 
+
+The 'Visited locations' page renders a Google Maps from the Google Maps API with markers for each location present in the database. If a location is not found of Google Maps, no marker is displayed. Unfortunately, it is possible for a user to input a non-existent city or a combination of a city and country that is incorrect. This can be addressed in newer versions of the application. 
+
+Different screen sizes have been tested to ensure responsiveness, in the developer tools and on [Responsinator](https://www.responsinator.com/). The website has also been run on various web browsers, such as Chrome, Safari, Internet Explorer and Microsoft Edge, leading to the conclusion the website is compatible with all of them. It does not perform well in most of the Firefox versions, as tested on [Browsershots](http://browsershots.org/). The HTML, CSS, JavaScript and Python codes have been validated by [HTML validator](https://validator.w3.org/), [CSS Validation service - Jigsaw](https://jigsaw.w3.org/css-validator/), [JSHint](https://jshint.com/) and [PEP8Online](http://pep8online.com/) respectively.
+
+The outcomes of the manual testing show the the website and its features work as expected. The access to the different pages of the website is clear and straightforward as the header provides links to them. It is intuitive and makes it easy for a user to use. The different user stories achieve the intended outcome. 
+
 
 ## Deployment
 1. A Github repository is created.

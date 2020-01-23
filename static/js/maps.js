@@ -6,7 +6,7 @@ function initMap() {
     center: latlng
   });
   geocodeAddress(geocoder, map);
-  
+
 }
 let labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let labelIndex = 0;
@@ -27,5 +27,3 @@ function geocodeAddress(geocoder, resultsMap) {
     });
   }
 }
-
-
