@@ -6,12 +6,13 @@ import json
 
 app = Flask(__name__)
 
+#configure the environmental variables
 app.config["MONGO_DBNAME"] = 'travel_diary'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
-
+"""Route decorators for chapters collection"""
 @app.route('/')
 @app.route('/get_chapters')
 def get_chapters():
@@ -54,10 +55,22 @@ def delete_chapter(chapter_id):
     mongo.db.chapters.remove({'_id': ObjectId(chapter_id)})
     return redirect(url_for('get_chapters'))
 
+
+"""Route decorators for countries collection"""
 @app.route('/get_countries')
 def get_countries():
     return render_template('countries.html', countries = mongo.db.countries.find())
     
+@app.route('/add_country')
+def add_country():
+    return render_template('addcountry.html')
+    
+@app.route('/insert_country', methods=["POST"])
+def insert_country():
+    country_doc = {'country_name': request.form.get('country_name')}
+    mongo.db.countries.insert_one(country_doc)
+    return redirect(url_for('get_countries'))
+
 @app.route('/edit_country/<country_id>')
 def edit_country(country_id):
     return render_template('editcountry.html', country=mongo.db.countries.find_one({'_id': ObjectId(country_id)}))
@@ -74,18 +87,6 @@ def delete_country(country_id):
     mongo.db.countries.remove({'_id': ObjectId(country_id)})
     return redirect(url_for('get_countries'))
 
-@app.route('/insert_country', methods=["POST"])
-def insert_country():
-    country_doc = {'country_name': request.form.get('country_name')}
-    mongo.db.countries.insert_one(country_doc)
-    return redirect(url_for('get_countries'))
-
-
-@app.route('/add_country')
-def add_country():
-    return render_template('addcountry.html')
-
-
 @app.route('/get_locations')
 def get_locations():
     return render_template('locations.html', chapters =mongo.db.chapters.find())
@@ -93,4 +94,4 @@ def get_locations():
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
+            debug=False)
